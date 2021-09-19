@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/bulma/bulma.sass";
+@import "tippy.js/dist/tippy.css";
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0
+}
+
+.alt-gradient-button {
+    border: none;
+    background: linear-gradient(to right, rgb(207, 36, 36), rgba(231, 11, 125));
+    color: #fff;
+    font-weight: 600;
+    opacity: 0.8;
+    &:hover {
+        opacity: 1;
+        color: #fff;
+        box-shadow: 0 0 0 5px rgba(black, 0.05);
+    }
+    &:active {
+        opacity: 0.8;
+    }
+    &:focus {
+        color: #fff;
+        opacity: 1;
+    }
+}

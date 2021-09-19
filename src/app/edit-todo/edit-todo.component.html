@@ -1,0 +1,24 @@
+<h1 class="title">Edit Todo</h1>
+<div mat-dialog-content>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <div class="field">
+            <div class="control">
+                <input type="text" #todoTextField="ngModel" required minlength="2" [ngModel]="item.text" name="text" class="input" placeholder="Hãy nhập gì đó ....">
+            </div>
+        </div>
+        <div *ngIf="todoTextField.invalid">
+            <p class="help is-danger" *ngIf="todoTextField.errors?.required">Vui lòng hãy nhập gì đó</p>
+            <p class="help is-danger" *ngIf="todoTextField.errors?.minlength">Cần nhập ít nhất 2 kí tự</p>
+        </div>
+        <br>
+
+        <div class="field is-grouped is-grouped-right">
+            <div class="control">
+                <button class="button is-light" type="button" (click)="close()">Cancel</button>
+            </div>
+            <div class="control">
+                <button class="button alt-gradient-button" type="submit"><i class="material-icons">save</i>Save</button>
+            </div>
+        </div>
+    </form>
+</div>

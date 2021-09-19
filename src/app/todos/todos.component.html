@@ -1,0 +1,32 @@
+<section class="heading-section">
+    <h1 class="title is-1 has-text-centered">Todos</h1>
+</section>
+
+
+<div class="container add-todo-box">
+    <div class="add-to-do-box">
+        <form (ngSubmit)="onAdd(form)" #form="ngForm">
+            <h2 class="title is-5">New Todo</h2>
+            <div class="field is-grouped">
+                <p class="control is-expanded">
+                    <input ngModel #todoTextField="ngModel" required minlength="2" name="text" class="input" type="text" placeholder="Hãy viết gì đó ....">
+                </p>
+                <p class="control">
+                    <button type="submit" class="button alt-gradient-button"><i class="fas fa-plus"></i> &nbsp; Add</button>
+                </p>
+            </div>
+            <div *ngIf="todoTextField.invalid && showValidators">
+                <p class="help is-danger" *ngIf="todoTextField.errors?.required">Vui lòng hãy nhập gì đó</p>
+                <p class="help is-danger" *ngIf="todoTextField.errors?.minlength">Cần nhập ít nhất 2 kí tự</p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="todo-list">
+            <app-todo-item *ngFor="let item of todos" [item]="item" (todoClick)="onTodoClick(item)" (editClick)="onEditClick(item)" (deleteClick)="onDeleteClick(item)"></app-todo-item>
+        </div>
+    </div>
+</section>
